@@ -1,4 +1,4 @@
 # Data-Structures-in-Python-
-Data Structures in Python  
-Done in Jupyter Notebook
+Data Structures and Algorithms in Python  
+All implementations and leetcode questions in Jupyter Notebook
 Daily updates
