@@ -1,0 +1,49 @@
+#Recursive reverse 
+class Node:
+    def __init__(self,value):
+        self.value = value
+        self.next = None
+        
+class LinkedList:
+    def __init__(self,value):
+        newnode = Node(value)
+        self.head,self.tail = newnode,newnode
+        
+    def append(self,value):
+        newnode = Node(value)
+        if self.head is None:
+            self.head,self.tail = newnode,newnode
+        self.tail.next = newnode 
+        self.tail = newnode 
+        return True
+
+    def print_list(self):
+        temp = self.head 
+        print('Linked List')
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+def reverse(head):
+    if head is None:
+        return None 
+    
+    new_head = head
+    if head.next is not None:
+        new_head = reverse(head.next)
+        head.next.next = head # reversing link bet head and next node 
+    head.next = None 
+    return new_head
+
+
+
+
+ll = LinkedList(1)
+ll.append(2)
+ll.append(3)
+ll.append(4)
+ll.append(5)
+head = ll.head
+new_head = reverse(head)
+ll.head = new_head
+ll.print_list()
