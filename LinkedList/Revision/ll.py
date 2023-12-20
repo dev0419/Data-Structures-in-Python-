@@ -94,6 +94,17 @@ class LinkedList:
             print(temp.value)
             temp = temp.next
 
+    def reverse(self):
+        if self.head is None:
+            return None 
+        prev,temp = None,self.head
+        while temp is not None:
+            cur = temp.next
+            temp.next = prev
+            prev = temp 
+            temp = cur
+        return prev
+            
 ll = LinkedList(1)
 ll.append(2)
 ll.append(3)
@@ -110,4 +121,8 @@ print(f"Deleted value: {rem_f.value}")
 ll.printList()
 rem_m = ll.remove(2)
 print(f"Deleted value: {rem_m.value}")
+ll.printList()
+new_head = ll.reverse()
+ll.head = new_head 
+print("Reversed List:")
 ll.printList()
